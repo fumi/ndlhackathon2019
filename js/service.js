@@ -25,6 +25,16 @@ function searchItems(keyword, from, size) {
     });
 }
 
+function searchItems2(keyword, from, size) {
+  return axios
+    .get("https://jpsearch.go.jp/rdf/sparql?default-graph-uri=&query=SELECT+%3Fs+%3Flabel+%3Flat+%3Flong+%3Ftype+WHERE+%7B%0D%0A++++%3Fs+jps%3Aspatial%2Fschema%3Ageo+%5B%0D%0A++++++++schema%3Alatitude+%3Flat%3B%0D%0A++++++++schema%3Alongitude+%3Flong%0D%0A++++%5D+.%0D%0A++++FILTER%28%3Flat+%3C+90%29%0D%0A++++FILTER%28bif%3Ast_within%28%0D%0A++++++++bif%3Ast_point%28%3Flong%2C+%3Flat%29%2C+++%0D%0A++++++++bif%3Ast_point%28139.907700%2C+35.729130%29%2C++3%29%29%0D%0A++++%3Fs+a+%3Ftype+%3B%0D%0A++++++rdfs%3Alabel+%3Flabel+.%0D%0A%7D&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+"
+    )
+    .then(function(response) {
+      return response.data;
+    });
+}
+
+
 // データベースを取得するAPI
 function getDatabase(id) {
   return axios

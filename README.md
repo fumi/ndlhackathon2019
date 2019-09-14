@@ -1,6 +1,7 @@
-# api-samples
+# NDL hackathon 2019
 
-ジャパンサーチの検索 API を利用した検索画面のサンプルです。
+ハッカソン用
+derived from jps-search-api-sample
 
 ## 使用ライブラリ
 

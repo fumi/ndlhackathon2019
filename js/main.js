@@ -17,7 +17,8 @@ new Vue({
     //検索APIを呼んで結果をresultに格納する。
     search: function(from) {
       var _this = this;
-      searchItems(this.keyword, from, this.size).then(function(data) {
+      //searchItems(this.keyword, from, this.size).then(function(data) {
+      searchItems2(this.keyword, from, this.size).then(function(data) {
         _this.result = data;
       });
     },
