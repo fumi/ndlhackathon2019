@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>jps-search-api-example</title>
+    <title>地元でサーチ (仮)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
   </head>
@@ -15,6 +15,7 @@
         <!-- ボタンを押すと検索実行。検索結果はresultに入る -->
         <button v-on:click="search(0)">Search</button>
       </div>
+      <button v-on:click="searchByCurrentPosition()">現在地</button>
       <!-- 検索結果がある時のみ表示 -->
       <div v-if="result">
         <div>
@@ -43,7 +44,8 @@
           <tr v-for="item in result.results.bindings">
             <!-- サムネイル -->
             <td>{{ item.label.value }} </td>
-            <td>{{ item.type.value }} </td>
+            <td>{{ item.label.lat }} </td>
+            <td>{{ item.label.long }} </td>
           </tr>
         </table>
       </div>

@@ -3,7 +3,7 @@ new Vue({
   el: "#app",
   data: {
     //Vue内で使う変数の宣言
-    keyword: "",
+    keyword: "永田町",
     result: null,
     item: null,
     label: null,
@@ -17,8 +17,14 @@ new Vue({
     //検索APIを呼んで結果をresultに格納する。
     search: function(from) {
       var _this = this;
-      //searchItems(this.keyword, from, this.size).then(function(data) {
       searchItems2(this.keyword, from, this.size).then(function(data) {
+      //searchItems2(this.keyword, from, this.size).then(function(data) {
+        _this.result = data;
+      });
+    },
+    searchByCurrentPosition: function() {
+      var _this = this;
+      searchItemsByCurrentPosition(this.keyword, this.size).then(function(data) {
         _this.result = data;
       });
     },
